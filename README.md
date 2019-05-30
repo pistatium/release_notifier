@@ -33,3 +33,9 @@ $ export CHECK_URL=https://example.com/version
 ```
 python checker.py
 ```
+
+### Docker 版
+
+```
+docker run -it -e CHECK_URL -e TARGET_HASH -e SLACK_WEBHOOK -e SLACK_CHANNEL -e SLACK_MESSAGE pistatium/release-notifier:latest
+```
