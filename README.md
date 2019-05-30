@@ -7,6 +7,15 @@ WEBサービスのデプロイが完了したかどうかをチェックして S
 
 ## 使い方
 
+### セットアップ
+
+```
+$ pip install -r requirements.txt
+
+$ export CHECK_URL=https://example.com/version
+...
+```
+
 | 環境変数 | 説明 |
 |---|---|
 |CHECK_URL | コミットハッシュが返ってくるURL |
@@ -18,3 +27,9 @@ WEBサービスのデプロイが完了したかどうかをチェックして S
 | SLACK_MESSAGE | (Optional) Slack本文 {url}, {hash} が使えます |
 | SLACK_ICON_EMOJI | (Optional) Slack通知時のアイコン |
 | SLACK_USERNAME | (Optional) Slack通知時のユーザー名 |
+
+### 実行
+
+```
+python checker.py
+```
