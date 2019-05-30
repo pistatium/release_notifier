@@ -7,7 +7,7 @@ import requests
 CHECK_URL = os.environ['CHECK_URL']
 TARGET_HASH = os.environ['TARGET_HASH']
 TIMEOUT = int(os.environ.get('TIMEOUT', 600))  # sec
-INTERVAL = int(os.environ.get('INTERVAL', 10)) # sec
+INTERVAL = int(os.environ.get('INTERVAL', 10))  # sec
 
 SLACK_WEBHOOK = os.environ.get('SLACK_WEBHOOK')
 SLACK_CHANNEL = os.environ.get('SLACK_CHANNEL')
@@ -22,7 +22,7 @@ if not SLACK_MESSAGE:
 
 def check_hash(url, target_hash):
     res = requests.get(CHECK_URL)
-    return res.text == TARGET_HASH, res.text
+    return res.text.strip() == TARGET_HASH.strip(), res.text
 
 
 def notify_slack(webhook, channel):
@@ -40,7 +40,7 @@ def notify_slack(webhook, channel):
 
 def main():
     start_at = time.time()
-
+    print(CHECK_URL, TARGET_HASH)
     while True:
         if time.time() - start_at > TIMEOUT:
             print('Timeout')
