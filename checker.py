@@ -55,7 +55,8 @@ def main():
 
         print('..', text)
 
-    notify_slack(SLACK_WEBHOOK, SLACK_CHANNEL)
+    for channel in SLACK_CHANNEL.split(','):
+        notify_slack(SLACK_WEBHOOK, SLACK_CHANNEL)
 
 
 if __name__ == '__main__':
