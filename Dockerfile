@@ -1,7 +1,9 @@
-FROM python:3.7-alpine
+FROM python:3.9-slim
 WORKDIR /opt/checker
-ADD requirements.txt /opt/checker/requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install poetry && poetry config virtualenvs.create false
+
+COPY pyproject.toml poetry.lock /opt/checker
+RUN poetry install --no-root
 
 ADD checker.py /opt/checker/checker.py
 CMD python -u checker.py
