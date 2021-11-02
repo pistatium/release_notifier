@@ -27,6 +27,8 @@ $ export CHECK_URL=https://example.com/version
 | SLACK_MESSAGE | (Optional) Slack本文 {url}, {hash} が使えます |
 | SLACK_ICON_EMOJI | (Optional) Slack通知時のアイコン |
 | SLACK_USERNAME | (Optional) Slack通知時のユーザー名 |
+| SLACK_TIMEOUT_MESSAGE | (Optional) デプロイ失敗時のSlack本文 |
+| SLACK_TIMEOUT_ICON_EMOJI | (Optional) デプロイ失敗時のSlackアイコン |
 
 ### 実行
 

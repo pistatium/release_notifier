@@ -23,6 +23,9 @@ SLACK_TIMEOUT_ICON_EMOJI = os.environ.get('SLACK_TIMEOUT_ICON_EMOJI', ':warning:
 if not SLACK_MESSAGE:
     SLACK_MESSAGE = '新しいバージョンがリリースされました！`{hash}`'.format(url=CHECK_URL, hash=TARGET_HASH)
 
+if not SLACK_TIMEOUT_MESSAGE:
+    SLACK_TIMEOUT_MESSAGE = 'デプロイに失敗しました。`{hash}`'.format(url=CHECK_URL, hash=TARGET_HASH)
+
 logger = getLogger('release_notifier')
 
 
